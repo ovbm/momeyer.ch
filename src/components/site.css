@@ -1,38 +1,45 @@
 .sllinks {
   position: absolute;
   top: 1em;
-  width: 100%; }
+  width: 100%;
+}
 
 .slcontainer {
   width: 64px;
   float: left;
   margin: 1em 0 1em 0;
-  text-align: center; }
+  text-align: center;
+}
 
 .slink {
   width: 2.5em;
   height: 2.5em;
   display: block;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 /*! Flickity v2.0.5
 http://flickity.metafizzy.co
 ---------------------------------------------- */
 .flickity-enabled {
-  position: relative; }
+  position: relative;
+}
 
 .flickity-enabled:focus {
-  outline: none; }
+  outline: none;
+}
 
 .flickity-viewport {
   overflow: hidden;
   position: relative;
-  height: 100%; }
+  height: 100%;
+}
 
 .flickity-slider {
   position: absolute;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 
 /* draggable */
 .flickity-enabled.is-draggable {
@@ -41,16 +48,19 @@ http://flickity.metafizzy.co
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 .flickity-enabled.is-draggable .flickity-viewport {
   cursor: move;
   cursor: -webkit-grab;
-  cursor: grab; }
+  cursor: grab;
+}
 
 .flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
   cursor: -webkit-grabbing;
-  cursor: grabbing; }
+  cursor: grabbing;
+}
 
 /* ---- previous/next buttons ---- */
 .flickity-prev-next-button {
@@ -65,46 +75,57 @@ http://flickity.metafizzy.co
   cursor: pointer;
   /* vertically center */
   -webkit-transform: translateY(-50%);
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+}
 
 .flickity-prev-next-button:hover {
-  background: white; }
+  background: white;
+}
 
 .flickity-prev-next-button:focus {
   outline: none;
-  box-shadow: 0 0 0 5px #09F; }
+  box-shadow: 0 0 0 5px #09f;
+}
 
 .flickity-prev-next-button:active {
-  opacity: 0.6; }
+  opacity: 0.6;
+}
 
 .flickity-prev-next-button.previous {
-  left: 10px; }
+  left: 10px;
+}
 
 .flickity-prev-next-button.next {
-  right: 10px; }
+  right: 10px;
+}
 
 /* right to left */
 .flickity-rtl .flickity-prev-next-button.previous {
   left: auto;
-  right: 10px; }
+  right: 10px;
+}
 
 .flickity-rtl .flickity-prev-next-button.next {
   right: auto;
-  left: 10px; }
+  left: 10px;
+}
 
 .flickity-prev-next-button:disabled {
   opacity: 0.3;
-  cursor: auto; }
+  cursor: auto;
+}
 
 .flickity-prev-next-button svg {
   position: absolute;
   left: 20%;
   top: 20%;
   width: 60%;
-  height: 60%; }
+  height: 60%;
+}
 
 .flickity-prev-next-button .arrow {
-  fill: #333; }
+  fill: #333;
+}
 
 /* ---- page dots ---- */
 .flickity-page-dots {
@@ -115,10 +136,12 @@ http://flickity.metafizzy.co
   margin: 0;
   list-style: none;
   text-align: center;
-  line-height: 1; }
+  line-height: 1;
+}
 
 .flickity-rtl .flickity-page-dots {
-  direction: rtl; }
+  direction: rtl;
+}
 
 .flickity-page-dots .dot {
   display: inline-block;
@@ -128,10 +151,12 @@ http://flickity.metafizzy.co
   background: #333;
   border-radius: 50%;
   opacity: 0.25;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .flickity-page-dots .dot.is-selected {
-  opacity: 1; }
+  opacity: 1;
+}
 
 .carousel-cell {
   width: 85%;
@@ -141,24 +166,28 @@ http://flickity.metafizzy.co
   /* height of carousel */
   margin-right: 1em;
   background-position: center center !important;
-  background-size: cover !important; }
+  background-size: cover !important;
+}
 
 .carousel-cell.is-selected {
-  background: white; }
+  background: white;
+}
 
 .bandname {
   opacity: 0.5;
   transform: translateZ(0);
   -webkit-transition: opacity 600ms, transform 600ms;
-  transition: opacity 600ms, transform 600ms; }
+  transition: opacity 600ms, transform 600ms;
+}
 
 .carousel-cell.is-selected .bandname {
   transform: perspective(500px) translateZ(100px);
-  opacity: 1; }
+  opacity: 1;
+}
 
 .contentlink {
   width: 100%;
-  margin: 0; 
+  margin: 0;
   opacity: 0.5;
   text-align: center;
   font-size: 1.5em;
@@ -169,29 +198,34 @@ http://flickity.metafizzy.co
   z-index: 999;
   -webkit-transition: opacity 600ms, transform 600ms;
   transition: opacity 600ms, transform 600ms;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); 
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
 .carousel-cell.is-selected .contentlink {
   transform: perspective(500px) translateZ(100px);
-  opacity: 1; }
+  opacity: 1;
+}
 
 body {
   margin: 0;
   font-family: 'Proxima Nova', 'Helvetica', sans-serif;
-  color: white; }
+  color: white;
+}
 
 #header {
-  margin-top: 30px; }
+  margin-top: 30px;
+}
 
 #footer {
   margin-top: 30px;
-  color: #777777; }
+  color: #777777;
+}
 
 .gallery-image img {
   display: block;
   max-width: 100%;
-  height: auto; }
+  height: auto;
+}
 
 .bandcontent {
   padding: 16px;
@@ -204,31 +238,55 @@ body {
   text-transform: uppercase;
   font-family: 'Proxima Nova', 'Helvetica', sans-serif;
   letter-spacing: -2px;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 }
-
-
 
 .bandcontent h3 {
   width: 100%;
   text-align: center;
   font-size: 1.8em;
-  margin: 0; 
+  margin: 0;
 }
 
-
-@media screen and (max-width: 414px) {
-  .bandcontent .contentdesc, .bandcontent .contentlineup {
-    font-size: 1.5em; } }
+.bandcontent.bio {
+  display: flex;
+  height: 100%;
+  flex-direction: column-reverse;
+}
 
 .textbox {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 1em; 
+  padding-top: 1em;
+}
+
+.textbox.bio {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 4em;
+}
+
+.textbox.bio p {
+  font-size: 1.5em;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
 }
 
 #footer {
   text-align: center;
-  font-family: 'Times', 'Times New Roman','Helvetica', serif;
-  color: black; }
+  font-family: 'Times', 'Times New Roman', 'Helvetica', serif;
+  color: black;
+}
+
+@media screen and (max-width: 414px) {
+  .bandcontent .contentdesc,
+  .bandcontent .contentlineup {
+    font-size: 1.5em;
+  }
+  .textbox.bio {
+    width: 90%;
+  }
+  .textbox.bio p {
+    font-size: 1.15em;
+  }
+}

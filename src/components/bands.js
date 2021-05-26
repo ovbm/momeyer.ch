@@ -1,14 +1,13 @@
-import React from 'react';
+import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Flickity from 'flickity';
+import Flickity from 'flickity'
 
-import 'flickity-bg-lazyload';
-import 'lazysizes';
-import facebookimg from '../images/icons/fbook.png';
-import instaimg from '../images/icons/instagram.png';
-import emailimg from '../images/icons/email.png';
-
+import 'flickity-bg-lazyload'
+import 'lazysizes'
+import facebookimg from '../images/icons/fbook.png'
+import instaimg from '../images/icons/instagram.png'
+import emailimg from '../images/icons/email.png'
 
 class Bands extends React.Component {
   componentDidMount() {
@@ -18,13 +17,13 @@ class Bands extends React.Component {
       prevNextButtons: false,
       wrapAround: true,
       bgLazyLoad: 2,
-      pageDots: false
-    });
-    flkty.on( 'staticClick', function( event, pointer, cellElem, cellIndex ) {
-      if ( cellIndex !== undefined ) {
-          flkty.select( cellIndex );
+      pageDots: false,
+    })
+    flkty.on('staticClick', function (event, pointer, cellElem, cellIndex) {
+      if (cellIndex !== undefined) {
+        flkty.select(cellIndex)
       }
-    });
+    })
   }
 
   render() {
@@ -34,58 +33,105 @@ class Bands extends React.Component {
           <StaticQuery
             query={graphql`
               query contentQuery {
-                allContentfulMomeyerBand(sort: {fields:position,order:ASC}) {
-                  edges {
-                    node {
-                      name
-                      image {
-                        file {
-                          url
-                          fileName
-                        }
+                allContentfulMomeyerBand(
+                  sort: { fields: position, order: ASC }
+                ) {
+                  nodes {
+                    name
+                    image {
+                      file {
+                        url
+                        fileName
                       }
-                      website
-                      position
+                    }
+                    website
+                    position
+                  }
+                }
+                allContentfulMomeyerBio {
+                  nodes {
+                    textDe {
+                      textDe
+                    }
+                    textEn {
+                      textEn
+                    }
+                    biobild {
+                      file {
+                        url
+                      }
                     }
                   }
-                } 
+                }
               }
             `}
-            render={ data => (
-              data.allContentfulMomeyerBand.edges.map((band) =>{
-              return (
-                <div
-                    key={band.node.position} 
+            render={(data) => {
+              const biodata = data.allContentfulMomeyerBio.nodes[0]
+              const bioband = {
+                name: 'bio',
+                image: {
+                  file: {
+                    url: biodata.biobild.file.url,
+                  },
+                },
+                textDe: biodata.textDe.textDe,
+                textEn: biodata.textEn.textEn,
+                webiste: '',
+                position: '',
+              }
+              const allBands = data.allContentfulMomeyerBand.nodes
+              allBands.splice(1, 0, bioband)
+              console.log(allBands)
+              return allBands.map((band) => {
+                return (
+                  <div
+                    key={band.position}
                     className="band carousel-cell"
-                    data-flickity-bg-lazyload={band.node.image.file.url}
-                >
-                  <div className={`bandcontent ${band.node.name}`}>
-                      <h1 className="bandname">{band.node.name}</h1>
-                      <div className="textbox">
-                        {
-                          band.node.name == "Mo Meyer" ?
-                          <> 
-                            <h3 className="contentdesc">bass player and musician</h3>
-                            <h3 className="contentlineup">electric bass, double bass, bass synth</h3>
+                    data-flickity-bg-lazyload={band.image.file.url}
+                  >
+                    <div className={`bandcontent ${band.name}`}>
+                      {band.name !== 'bio' && (
+                        <h1 className="bandname">{band.name}</h1>
+                      )}
+                      <div className={`textbox ${band.name}`}>
+                        {band.name == 'bio' ? (
+                          <div>
+                            <p>{band.textDe}</p>
+                            <p>{band.textEn}</p>
+                          </div>
+                        ) : band.name == 'Mo Meyer' ? (
+                          <>
+                            <h3 className="contentdesc">
+                              bass player and musician
+                            </h3>
+                            <h3 className="contentlineup">
+                              electric bass, double bass, bass synth
+                            </h3>
                           </>
-                          :
-                          <a className="contentlink" target="_blank" href={band.node.website}>WWW</a>
-                        }
+                        ) : (
+                          <a
+                            className="contentlink"
+                            target="_blank"
+                            href={band.website}
+                          >
+                            WWW
+                          </a>
+                        )}
                       </div>
-                      {
-                        band.node.name == "Mo Meyer" && 
+                      {band.name == 'Mo Meyer' && (
                         <div className="sllinks">
                           <div className="slcontainer">
-                            <a  
+                            <a
                               style={{
                                 background: `url(${facebookimg}) no-repeat`,
                                 backgroundSize: '100%',
                               }}
                               target="_blank"
                               className="slink slfbook js-track-clicks"
-                              data-category='link'
-                              data-action='facebook'
-                              href="https://www.facebook.com/mo.meyer.3"/>
+                              data-category="link"
+                              data-action="facebook"
+                              href="https://www.facebook.com/mo.meyer.3"
+                            />
                           </div>
                           <div className="slcontainer">
                             <a
@@ -95,9 +141,10 @@ class Bands extends React.Component {
                               }}
                               target="_blank"
                               className="slink slinstagram js-track-clicks"
-                              data-category='link'
-                              data-action='instagram'
-                              href="https://www.instagram.com/mo.myer/"/>
+                              data-category="link"
+                              data-action="instagram"
+                              href="https://www.instagram.com/mo.myer/"
+                            />
                           </div>
                           <div className="slcontainer">
                             <a
@@ -107,17 +154,18 @@ class Bands extends React.Component {
                               }}
                               target="_blank"
                               className="slink slemail js-track-clicks"
-                              data-category='link'
-                              data-action='email'
-                              href="mailto:mo@momeyer.ch"/>
+                              data-category="link"
+                              data-action="email"
+                              href="mailto:mo@momeyer.ch"
+                            />
                           </div>
-                        </div>  
-                      }
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
                 )
               })
-            )} 
+            }}
           />
         </div>
       </div>

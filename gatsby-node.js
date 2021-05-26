@@ -7,17 +7,17 @@
 // You can delete this file if you're not using it
 
 exports.onCreateWebpackConfig = ({ stage, actions, loaders }) => {
-    if (stage === 'build-html') {
+    if (stage === 'build-html' || stage === "develop-html") {
         actions.setWebpackConfig({
           module: {
             rules: [
                 { 
                     test: /lazysizes/,
-                    use: loaders.null
+                    use: loaders.null()
                 },
                 { 
                     test: /flickity/,
-                    use: loaders.null
+                    use: loaders.null()
                 },
 
             ]
