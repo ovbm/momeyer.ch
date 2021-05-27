@@ -53,9 +53,6 @@ class Bands extends React.Component {
                     textDe {
                       textDe
                     }
-                    textEn {
-                      textEn
-                    }
                     biobild {
                       file {
                         url
@@ -75,13 +72,11 @@ class Bands extends React.Component {
                   },
                 },
                 textDe: biodata.textDe.textDe,
-                textEn: biodata.textEn.textEn,
                 webiste: '',
                 position: '',
               }
               const allBands = data.allContentfulMomeyerBand.nodes
               allBands.splice(1, 0, bioband)
-              console.log(allBands)
               return allBands.map((band) => {
                 return (
                   <div
@@ -94,31 +89,31 @@ class Bands extends React.Component {
                         <h1 className="bandname">{band.name}</h1>
                       )}
                       <div className={`textbox ${band.name}`}>
-                        {band.name == 'bio' ? (
+                        {band.name === 'bio' ? (
                           <div>
                             <p>{band.textDe}</p>
-                            <p>{band.textEn}</p>
                           </div>
-                        ) : band.name == 'Mo Meyer' ? (
+                        ) : band.name === 'Mo Meyer' ? (
                           <>
                             <h3 className="contentdesc">
-                              bass player and musician
+                              Bass Player &amp; Musical Director
                             </h3>
                             <h3 className="contentlineup">
-                              electric bass, double bass, bass synth
+                              electric bass | synth bass | double bass
                             </h3>
                           </>
                         ) : (
                           <a
                             className="contentlink"
                             target="_blank"
+                            rel="noreferrer"
                             href={band.website}
                           >
                             WWW
                           </a>
                         )}
                       </div>
-                      {band.name == 'Mo Meyer' && (
+                      {band.name === 'Mo Meyer' && (
                         <div className="sllinks">
                           <div className="slcontainer">
                             <a
@@ -127,6 +122,7 @@ class Bands extends React.Component {
                                 backgroundSize: '100%',
                               }}
                               target="_blank"
+                              rel="noreferrer"
                               className="slink slfbook js-track-clicks"
                               data-category="link"
                               data-action="facebook"
@@ -140,6 +136,7 @@ class Bands extends React.Component {
                                 backgroundSize: '100%',
                               }}
                               target="_blank"
+                              rel="noreferrer"
                               className="slink slinstagram js-track-clicks"
                               data-category="link"
                               data-action="instagram"
@@ -153,6 +150,7 @@ class Bands extends React.Component {
                                 backgroundSize: '100%',
                               }}
                               target="_blank"
+                              rel="noreferrer"
                               className="slink slemail js-track-clicks"
                               data-category="link"
                               data-action="email"

@@ -5,8 +5,8 @@ import favicon from '../images/favicon.ico';
 import '../components/site.css';
 import Bands from '../components/bands';
 
-const siteTitle = 'Mo Meyer - freelance bass player';
-const siteDescription = 'Mo Meyer - freelance bass player, electric bass, bass synth, double bass';
+const siteTitle = 'Mo Meyer - Bass Player and Musical Director';
+const siteDescription = 'Mo Meyer is a bass player and musical director living in Zurich.';
 
 const IndexPage = () => (
   <>
@@ -14,7 +14,7 @@ const IndexPage = () => (
       title={siteTitle}
       meta={[
         { name: 'description', content: siteDescription },
-        { name: 'keywords', content: 'mo meyer, electric bass, bass synth, double bass, zürich, ikarus, cilia hunch, joscha schraff quartett, ray drma, liv summer' },
+        { name: 'keywords', content: 'mo meyer, music director, electric bass, synth bass, double bass, zürich, ikarus, loco escrito, marius baer' },
       ]}
       link={[
         {
